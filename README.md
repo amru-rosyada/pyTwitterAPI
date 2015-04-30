@@ -55,7 +55,7 @@ After open link in browser in my case i use https://api.twitter.com/oauth/authen
 After granting access it will be redirect to your callback url in my case i use http://127.0.0.1:8888/p/authenticate/twitter
 If valid it will automatically redirect to your callback url with oauth_token and oauth_verifier, in my case it will be redirect to http://127.0.0.1:8888/p/authenticate/twitter?oauth_token=b0BbomV1nZzFqr8Oc&oauth_verifier=QTLTHWAF52trN07q1
 
-then user oauth_token and oauth_verifier to get access token
+then use oauth_token and oauth_verifier to get access token
 <pre>
 # import twitter api
 
@@ -107,7 +107,7 @@ print(t_api.request_api('299-2cim9m4d630UKb', 'VN8gw5ESX8eBExLzS8pp', 'api_statu
 # output will be in json format
 </pre>
 
-#D. API Type and Paramter
+#D. API Type and Parameter
 All url request already encapsulated in my code you only need call the name of url type, for parameter when request you need refer to twitter REST API https://dev.twitter.com/rest/public
 
 here the list of mapping REST api url:
