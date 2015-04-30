@@ -211,6 +211,7 @@ here the list of mapping REST api url:
 'api_users_report_spam':('https://api.twitter.com/1.1/users/report_spam.json', 'POST')}
 </pre>
 
+<pre>
 api_type='api_users_report_spam' or api_type='api_trends_closest' etc.
 
 ex:
@@ -218,3 +219,4 @@ params = {'param_1':'xxx', 'param_2':'xxx'}
 print(t_api.request_api('299-2cim9m4d630UKb', 'VN8gw5ESX8eBExLzS8pp', 'api_trends_closest', params))
 
 params should be refer to twitter REST API,
+</pre>
