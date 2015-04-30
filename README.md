@@ -1,4 +1,4 @@
-# pyTwitterAPI
+# pyTwitterAPI (Version 1.0.0)
 python wrapper for simplify twitter rest API (I code using Python v3.4, if it's not working on older python release you can modify this code and commit to this repository :-))
 
 This software is GPLV3
