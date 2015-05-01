@@ -33,6 +33,7 @@ request_token = t_api.request_token('http://127.0.0.1:8888/p/authenticate/twitte
 
 # return token will give dictionary output if operation success
 # example output in my case {'oauth_callback_confirmed': 'true', 'oauth_token': 'ITL82qNEmWkh3Uze', 'oauth_token_secret': 'M1XwCvmMffnTD'}
+# we will use oauth_token and oauth_token_secret for next step when we request access token
 
 # then use oauth_token for get authentication url
 # request authentication url
@@ -53,22 +54,22 @@ print(t_api.request_authenticate_url(request_token.get('oauth_token')))
 #B. grant access to the application and get access token
 After open link in browser in my case i use https://api.twitter.com/oauth/authenticate?oauth_token=b0BbomV1nZzFqr8O
 After granting access it will be redirect to your callback url in my case i use http://127.0.0.1:8888/p/authenticate/twitter
-If valid it will automatically redirect to your callback url with oauth_token and oauth_verifier, in my case it will be redirect to http://127.0.0.1:8888/p/authenticate/twitter?oauth_token=b0BbomV1nZzFqr8Oc&oauth_verifier=QTLTHWAF52trN07q1
+If valid it will automatically redirect to your callback url with oauth_token, oauth_token_secret (from previous step) and oauth_verifier, in my case it will be redirect to http://127.0.0.1:8888/p/authenticate/twitter?oauth_token=b0BbomV1nZzFqr8Oc&oauth_verifier=QTLTHWAF52trN07q1
 
-then use oauth_token and oauth_verifier to get access token
+then use oauth_token, oauth_token_secret (from previous step) and oauth_verifier to get access token
 <pre>
 # import twitter api
 
 from twitterAPI import TwitterAPI
 
 # create object
-# input your oauth_token and oauth_verifier from callback url to request access token
+# input your oauth_token, oauth_token_secret (from previous step) and oauth_verifier from callback url to request access token
 
 t_api = TwitterAPI('rUJ8MepSitKOYoSmaIJS', '49BcA9HPSaD')
 
-# request_access_token('oauth_token', 'oauth_verifier')
+# request_access_token('oauth_token', 'oauth_token_secret', 'oauth_verifier')
 
-print(t_api.request_access_token('b0BbomV1nZzFqr8O', 'QTLTHWAF52trN07q1'))
+print(t_api.request_access_token('b0BbomV1nZzFqr8O', 'M1XwCvmMffnTD', 'QTLTHWAF52trN07q1'))
 
 # in my case it will give an output
 # {'oauth_token_secret': 'VN8gw5ESX8eBExLzS8pp', 'user_id': '299', 'oauth_token': '299-2cim9m4d630UKb', 'screen_name': 'sikilkuinc'}
