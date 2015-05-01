@@ -30,10 +30,10 @@ request_token = t_api.request_token('http://127.0.0.1:8888/p/authenticate/twitte
 print(t_api.request_authenticate_url(request_token.get('oauth_token')))
 
 # in my case will give output
-# https://api.twitter.com/oauth/authenticate?oauth_token=b0BbomV1nZzFqr8O
+# https://api.twitter.com/oauth/authenticate?oauth_token=ITL82qNEmWkh3Uze
 # this token only available for 300 second after that you need to regenerate new one
 
 # will give you output grant access url
 # open on the browser, in my case output will be like this
-# https://api.twitter.com/oauth/authenticate?oauth_token=b0BbomV1nZzFqr8O
+# https://api.twitter.com/oauth/authenticate?oauth_token=ITL82qNEmWkh3Uze
 # open on the browser and grant access to application
