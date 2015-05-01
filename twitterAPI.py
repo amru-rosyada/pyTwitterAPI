@@ -262,14 +262,14 @@ class TwitterAPI():
         
     # request access token
     # parameter oauth_verifier and oauth_token is required 
-    def request_access_token(self, oauth_token, oauth_verifier):
+    def request_access_token(self, oauth_token, oauth_token_secret, oauth_verifier):
         url, method = self.twitter_rest_api.get('api_oauth_access_token')
         
         if oauth_token and oauth_verifier:
             res = self.do_request(url_request=url,
                 request_method=method,
                 oauth_token=oauth_token,
-                oauth_token_secret='',
+                oauth_token_secret=oauth_token_secret,
                 oauth_callback='',
                 use_headers_auth=True,
                 additional_params={'oauth_verifier':oauth_verifier})
@@ -320,5 +320,5 @@ class TwitterAPI():
     # percent_quote
     # quote url as percent quote
     def percent_quote(self, text):
-        return quote(text, '~')
+        return quote(text)
         

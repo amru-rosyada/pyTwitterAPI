@@ -21,6 +21,7 @@ request_token = t_api.request_token('http://127.0.0.1:8888/p/authenticate/twitte
 
 # return token will give dictionary output if operation success
 # example output in my case {'oauth_callback_confirmed': 'true', 'oauth_token': 'ITL82qNEmWkh3Uze', 'oauth_token_secret': 'M1XwCvmMffnTD'}
+# we will use oauth_token and oauth_token_secret for next step when we request access token
 
 # then use oauth_token for get authentication url
 # request authentication url
