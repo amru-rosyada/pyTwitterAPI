@@ -315,7 +315,11 @@ class TwitterAPI():
                 use_headers_auth=True,
                 additional_params=params)
                 
-        return res.decode('UTF-8')
+        if res:
+            return res.decode('UTF-8')
+
+        # default return value
+        return None
 
     # percent_quote
     # quote url as percent quote
