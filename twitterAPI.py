@@ -320,5 +320,5 @@ class TwitterAPI():
     # percent_quote
     # quote url as percent quote
     def percent_quote(self, text):
-        return quote(text)
+        return quote(text, '~')
         
