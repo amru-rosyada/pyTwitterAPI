@@ -42,17 +42,17 @@ request_token = t_api.request_token('http://127.0.0.1:8888/p/authenticate/twitte
 print(t_api.request_authenticate_url(request_token.get('oauth_token')))
 
 # in my case will give output
-# https://api.twitter.com/oauth/authenticate?oauth_token=b0BbomV1nZzFqr8O
+# https://api.twitter.com/oauth/authenticate?oauth_token=ITL82qNEmWkh3Uze
 # this token only available for 300 second after that you need to regenerate new one
 
 # will give you output grant access url
 # open on the browser, in my case output will be like this
-# https://api.twitter.com/oauth/authenticate?oauth_token=b0BbomV1nZzFqr8O
+# https://api.twitter.com/oauth/authenticate?oauth_token=ITL82qNEmWkh3Uze
 # open on the browser and grant access to application
 </pre>
 
 #B. grant access to the application and get access token
-After open link in browser in my case i use https://api.twitter.com/oauth/authenticate?oauth_token=b0BbomV1nZzFqr8O
+After open link in browser in my case i use https://api.twitter.com/oauth/authenticate?oauth_token=ITL82qNEmWkh3Uze
 After granting access it will be redirect to your callback url in my case i use http://127.0.0.1:8888/p/authenticate/twitter
 If valid it will automatically redirect to your callback url with oauth_token, oauth_token_secret (from previous step) and oauth_verifier, in my case it will be redirect to http://127.0.0.1:8888/p/authenticate/twitter?oauth_token=b0BbomV1nZzFqr8Oc&oauth_verifier=QTLTHWAF52trN07q1
 
@@ -69,7 +69,7 @@ t_api = TwitterAPI('rUJ8MepSitKOYoSmaIJS', '49BcA9HPSaD')
 
 # request_access_token('oauth_token', 'oauth_token_secret', 'oauth_verifier')
 
-print(t_api.request_access_token('b0BbomV1nZzFqr8O', 'M1XwCvmMffnTD', 'QTLTHWAF52trN07q1'))
+print(t_api.request_access_token('ITL82qNEmWkh3Uze', 'M1XwCvmMffnTD', 'QTLTHWAF52trN07q1'))
 
 # in my case it will give an output
 # {'oauth_token_secret': 'VN8gw5ESX8eBExLzS8pp', 'user_id': '299', 'oauth_token': '299-2cim9m4d630UKb', 'screen_name': 'sikilkuinc'}
