@@ -30,8 +30,8 @@ class TwitterAPI():
         
         # list of dictionary of twitter rest api url
         # access via dicionary get will return url of rest api
-        # ex: twitter_rest_api.get('api_authenticate')
-        self.twitter_rest_api = {'api_oauth_authenticate':('https://api.twitter.com/oauth/authenticate', 'GET'),
+        # ex: rest_api.get('api_authenticate')
+        self.rest_api = {'api_oauth_authenticate':('https://api.twitter.com/oauth/authenticate', 'GET'),
             'api_oauth_request_token':('https://api.twitter.com/oauth/request_token', 'POST'),
             'api_oauth_access_token':('https://api.twitter.com/oauth/access_token', 'POST'),
             'api_statuses_mentions_timeline':('https://api.twitter.com/1.1/statuses/mentions_timeline.json', 'GET'),
@@ -232,7 +232,7 @@ class TwitterAPI():
     # get request token
     # required oauth_callback
     def request_token(self, oauth_callback):
-        url, method = self.twitter_rest_api.get('api_oauth_request_token')
+        url, method = self.rest_api.get('api_oauth_request_token')
         
         res = self.do_request(url_request=url,
             request_method=method,
@@ -252,7 +252,7 @@ class TwitterAPI():
     # requred parameter is oauth_token
     # will return request_auth_url for granting permission
     def request_authenticate_url(self, oauth_token):
-        url, method = self.twitter_rest_api.get('api_oauth_authenticate')
+        url, method = self.rest_api.get('api_oauth_authenticate')
         
         if oauth_token:
             return '?'.join((url, '='.join(('oauth_token', self.percent_quote(oauth_token)))))
@@ -263,7 +263,7 @@ class TwitterAPI():
     # request access token
     # parameter oauth_verifier and oauth_token is required 
     def request_access_token(self, oauth_token, oauth_token_secret, oauth_verifier):
-        url, method = self.twitter_rest_api.get('api_oauth_access_token')
+        url, method = self.rest_api.get('api_oauth_access_token')
         
         if oauth_token and oauth_verifier:
             res = self.do_request(url_request=url,
@@ -289,7 +289,7 @@ class TwitterAPI():
     # api_type is key of api will called
     # ex: api_type='api_statuses_mentions_timeline'
     def request_api(self, oauth_token, oauth_token_secret, api_type, params={}):
-        url, method = self.twitter_rest_api.get(api_type)
+        url, method = self.rest_api.get(api_type)
         
         # if contain :id then replace with params.get('id')
         if url.find(':id') != -1:
